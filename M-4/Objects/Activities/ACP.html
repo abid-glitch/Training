@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<p>Total using arguments and Math functions</p>
+	<p id="demo"></p>
+
+	<script>
+		function calculateSum() {
+			let result = 0;
+			for (let j = 0; j < arguments.length; j++) {
+				result += arguments[j];
+			}
+			return result;
+		}
+		document.getElementById("demo").innerHTML = calculateSum(1, 123, 500, 115, 44, 88);
+		let sinVal = Math.sin(45);
+		document.write("Value of Sin 45: " + sinVal + "<br>");
+		let cosVal = Math.cos(45);
+		document.write("Value of Cos 45: " + cosVal + "<br>");
+		let tanVal = Math.tan(45);
+		document.write("Value of Tan 45: " + tanVal + "<br>");
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Using JS Promises</h2>
+    <p id="info"></p>
+    <script>
+      function render(data) {
+        document.getElementById("info").innerHTML = data;
+      }
+      function addValues(m, n){
+        let total = m + n;
+        render(total);
+      }
+      let promise = new Promise(function(resolve, reject) {
+        let flag = 0;
+        if (flag === 0) {
+          resolve("OK");
+        } else {
+          reject("Error");
+        }
+      });
+
+      promise.then(
+        function() { addValues(5, 5); },
+        function(err) { addValues(err); }
+      );
+    </script>
+  </body>
+</html>

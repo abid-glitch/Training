@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Responsive Grid Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+h1 {
+  color: darkgreen;
+}
+#block1, #block4 {
+  color: #fff;
+  background-color: olive;
+  font-size: 20px;
+}
+#block2, #block5 {
+  color: #fff;
+  background-color: maroon;
+  font-size: 20px;
+}
+#block3, #block6 {
+  color: #fff;
+  background-color: fuchsia;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+  <h1>Custom Bootstrap Grids</h1>
+  <div class="row">
+    <div id="block1" class="col-sm-3">Grid 1-3</div>
+    <div id="block2" class="col-sm-4">Grid 4-7</div>
+    <div id="block3" class="col-sm-5">Grid 8-12</div>
+  </div>
+  <div class="row">
+    <div id="block4" class="col-sm-2">Grid 1-2</div>
+    <div id="block5" class="col-sm-6">Grid 3-8</div>
+    <div id="block6" class="col-sm-4">Grid 9-12</div>
+  </div>
+</div>
+</body>
+</html>

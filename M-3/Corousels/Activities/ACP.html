@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ScrollSpy Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    position: relative;
+  }
+  #sec1 {padding-top:50px;height:200px;color:#fff;background:#1e86e4;}
+  #sec2 {padding-top:50px;height:200px;color:#fff;background:#845eb7;}
+  #sec3 {padding-top:50px;height:200px;color:#fff;background:#ff9800;}
+  #sec41 {padding-top:50px;height:200px;color:#fff;background:#00bcd4;}
+  #sec42 {padding-top:50px;height:200px;color:#fff;background:#009688;}
+  </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">MySite</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="navCollapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#sec1">Home</a></li>
+          <li><a href="#sec2">About</a></li>
+          <li><a href="#sec3">Services</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Contact<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#sec41">Login</a></li>
+              <li><a href="#sec42">Register</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="sec1" class="container-fluid">
+  <h1>Home</h1>
+  <p>Welcome to our site</p>
+</div>
+<div id="sec2" class="container-fluid">
+  <h1>About</h1>
+  <p>Learn more about us here</p>
+</div>
+<div id="sec3" class="container-fluid">
+  <h1>Services</h1>
+  <p>Check out what we offer</p>
+</div>
+<div id="sec41" class="container-fluid">
+  <h1>Login</h1>
+  <p>Access your account</p>
+</div>
+<div id="sec42" class="container-fluid">
+  <h1>Register</h1>
+  <p>Create a new account</p>
+</div>
+
+</body>
+</html>

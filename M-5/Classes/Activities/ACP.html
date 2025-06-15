@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h2>JavaScript Inheritance with Static Method</h2>
+
+  <p id="details"></p>
+  <p id="greetings"></p>
+
+  <script>
+    class Pupil {
+      constructor(name) {
+        this.name = name;
+      }
+      static greet() {
+        return "Hello there";
+      }
+      introduce() {
+        return 'My name is ' + this.name;
+      }
+    }
+
+    class Standard extends Pupil {
+      constructor(name, grade) {
+        super(name);
+        this.grade = grade;
+      }
+      display() {
+        return this.introduce() + ', and I am in ' + this.grade;
+      }
+    }
+
+    const student = new Standard("Tina", "Grade 6");
+    document.getElementById("details").innerHTML = student.display();
+    document.getElementById("greetings").innerHTML = Pupil.greet();
+  </script>
+
+</body>
+</html>

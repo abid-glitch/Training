@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JS Array Sort & Reverse</h2>
+    <p>sort() arranges an array alphabetically.</p>
+    <p>reverse() flips the array items.</p>
+    <button onclick="sortItems()">Sort</button>
+    <button onclick="reverseItems()">Reverse</button>
+    <p id="display"></p>
+    <script>
+      var items = ["Banana", "Orange", "Apple", "Mango"];
+      document.getElementById("display").innerHTML = items;
+      function sortItems() {
+        items.sort();
+        document.getElementById("display").innerHTML = items;
+      }
+      function reverseItems() {
+        items.reverse();
+        document.getElementById("display").innerHTML = items;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JS Callback Example</h2>
+    <p>Calculate and then show the answer.</p>
+    <p id="output"></p>
+    <script>
+      function show(val) {
+        document.getElementById("output").innerHTML = val;
+      }
+      function compute(x, y, callback) {
+        let result = x + y;
+        callback(result);
+      }
+      compute(5, 5, show);
+    </script>
+  </body>
+</html>

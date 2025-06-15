@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h2>JS Try Catch Example</h2>
+
+    <p>Demonstration of catching an error.</p>
+
+    <p id="msg"></p>
+
+    <script>
+      try {
+        callAlert("Welcome guest!");
+      } catch(e) {
+        document.getElementById("msg").innerHTML = e.message;
+      }
+    </script>
+
+  </body>
+</html>

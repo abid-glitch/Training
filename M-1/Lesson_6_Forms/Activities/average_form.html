@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Average</title>
+</head>
+
+<body>
+
+	<fieldset>
+		<legend>
+			<b>Enter Marks</b>
+		</legend>
+
+		<form action="/action_page.php"
+			oninput = "x.value=(parseInt(m1.value)+parseInt(m2.value)+parseInt(m3.value))/3">
+
+			<label>Name</label> <br>
+			<input type="text"> <br> <br>
+
+			<label>Maths : </label>
+			<select name="sub1">
+				<option value="maths">Maths</option> 
+				<option value="English">English</option>
+				<option value="Science">Science</option>
+			</select>
+			<input type="number"> 
+			<br> <br>
+			<label>English : </label>
+			<select name="sub2">
+				<option value="maths">Maths</option>
+				<option value="English">English</option>
+				<option value="Science">Science</option>
+
+			</select>
+			<input type="number" id="m2" name="m2"> 
+			<br> <br>
+			<label>Science : </label>
+			<select name="sub3">
+				<option value="maths">Maths</option>
+				<option value="English">English</option>
+				<option value="Science">Science</option>
+
+			</select>
+			<input type="number" id="m3" name="m3"> 
+
+			<br> <br>
+
+		
+			Average: <output name="x" for="m1 m2 m3"></output>
+			<input type="number" id="m3" name="m3"><br><br>
+
+		</form>
+	</fieldset>
+
+</body>
+
+</html>

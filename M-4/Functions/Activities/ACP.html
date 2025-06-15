@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  
+  <body>
+    <button onclick="calculate(4)">Click Me!</button>
+    <p id="output"></p>
+    
+    <script>
+      function calculate(x, y) {
+        if (typeof y === "undefined") {
+          alert("Second value is missing");
+          y = 5;
+        }
+        var res = x * y;
+        document.getElementById("output").innerHTML = res;
+      }
+    </script>
+  </body>
+</html>

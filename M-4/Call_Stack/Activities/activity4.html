@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JS Array Methods</h2>
+    <h3>Using join() & pop()</h3>
+    <p>join() combines array items into a string. pop() deletes the last item.</p>
+    
+<p id="joinResult"></p>
+    <p id="beforePop"></p>
+    <p id="afterPop"></p>
+
+<script>
+    let items = ["Banana", "Orange", "Apple", "Mango"];
+    
+    document.getElementById("joinResult").innerHTML = items.join(" * ");
+    document.getElementById("beforePop").innerHTML = items;
+    items.pop();
+    document.getElementById("afterPop").innerHTML = items;
+</script>
+
+</body>
+</html>

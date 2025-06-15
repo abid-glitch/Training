@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Each number multiplied by 10:</p>
+    <p id="result_box"></p>
+    <script>
+      var values = [28, 6, 19, 95];
+      function multiply(num) {
+        return num * 10;
+      }
+      var result = values.map(multiply);
+      document.getElementById("result_box").innerHTML = result;
+    </script>
+  </body>
+</html>

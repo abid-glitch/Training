@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	<p>Assigning a default value to a function argument.</p>
+	<p id="demo"></p>
+	<script>
+		function multiply(a, b) {
+			if (b === undefined) {
+				b = 2;
+			}
+			return a * b;
+		}
+		document.getElementById("demo").innerHTML = multiply(5);
+	</script>
+	</body>
+</html>

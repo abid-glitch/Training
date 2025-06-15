@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Press the button to run JS expressions.</p>
+    <button onclick="executeCode()">Run</button>
+    <p id="display_output"></p>
+    <script>
+      function executeCode() {
+        var x = 10, y = 20;
+        var part1 = eval("x + y") + "<br>";
+        var part2 = eval("2 * 2") + "<br>";
+        var part3 = eval("y - x") + "<br>";
+        var final = part1 + part2 + part3;
+        document.getElementById("display_output").innerHTML = final;
+      }
+    </script>
+  </body>
+</html>

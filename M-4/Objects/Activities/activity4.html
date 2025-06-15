@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <p>Getting the largest value using Arguments object</p>
+    <p id="output"></p>
+    <script>
+      function getMax() {
+        let highest = 0;
+        for(let i = 0; i < arguments.length; i++) {
+          if (arguments[i] > highest) {
+            highest = arguments[i];
+          }
+        }
+        return highest;
+      }
+      document.getElementById("output").innerHTML = getMax(8, 4, 5, 6, 2);
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h2>JS String Search and Replace</h2>
+
+    <p>Find "doing" and replace part of the sentence.</p>
+
+    <p id="find_result"></p>
+    <p id="change_result"></p>
+
+    <script>
+      let sentence = "Hai hello how are doing for the day";
+      let pos = sentence.search("doing");
+      let updated = sentence.replace("how are", "how are you");
+      document.getElementById("find_result").innerHTML = pos;
+      document.getElementById("change_result").innerHTML = updated;
+    </script>
+
+  </body>
+</html>

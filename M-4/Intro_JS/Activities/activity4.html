@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Arithmetic Operations</h2>
+  <p id="result1"></p>
+  <p id="result2"></p>
+  <p id="result3"></p>
+  <p id="result4"></p>
+  <p id="result5"></p>
+
+  <script>
+    let num1 = 5;
+    let num2 = 2;
+    let sum = num1 + num2;
+    let diff = num1 - num2;
+    let prod = num1 * num2;
+    let div = num1 / num2;
+
+    document.getElementById("result1").innerHTML = sum;
+    document.getElementById("result2").innerHTML = diff;
+    document.getElementById("result3").innerHTML = prod;
+    document.getElementById("result4").innerHTML = div;
+
+    num1 = num1 + 4;
+    document.getElementById("result5").innerHTML = num1;
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>The test() function checks for a match and gives true or false.</p>
+    <p>Press the button to look in a string for the word "about".</p>
+    <button onclick="checkMatch()">Try it</button>
+    <p id="demo"></p>
+    <script>
+      function checkMatch() {
+        let text = "I learnt about Methods";
+        let pattern = new RegExp("try");
+        let result = pattern.test(text);
+        document.getElementById("demo").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>This function uses variables declared within it:</p>
+    <button type="button" onclick="showResult()">Click Me!</button>
+    <p id="demo"></p>
+    <p id="output"></p>
+    <script>
+      function showResult() {
+        let num = 4;
+        document.getElementById("demo").innerHTML = num * num;
+      }
+      document.getElementById("output").innerHTML = typeof num;
+    </script>
+  </body>
+</html>

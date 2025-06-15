@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Array Sorting</h2>
+    <p>Click below to arrange numbers.</p>
+    <button onclick="asc()">Sort Ascending</button>
+    <button onclick="desc()">Sort Descending</button>
+    <p id="output"></p>
+    <script>
+      var data = [40, 100, 1, 5, 25, 10];
+      document.getElementById("output").innerHTML = data;  
+      function asc() {
+        data.sort((a, b) => a - b);
+        document.getElementById("output").innerHTML = data;
+      }
+      function desc() {
+        data.sort((a, b) => b - a);
+        document.getElementById("output").innerHTML = data;
+      }
+    </script>
+  </body>
+</html>

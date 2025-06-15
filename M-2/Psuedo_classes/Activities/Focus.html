@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        form {
+            background-color: crimson;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(60, 60, 90, 0.15), 0 1px 0 rgba(0, 0, 255, 0.4);
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            border: 1px solid navy;
+            display: inline-block;
+            box-sizing: border-box;
+            box-shadow: 0 1px 3px rgba(60, 60, 90, 0.15), 0 1px 0 rgba(0, 0, 0, 0.03);
+        }
+        input:focus {
+            background-color: khaki;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form>
+        <div class="form-container">
+            <label for="uname">Username:</label><br>
+            <input type="text" name="uname" id="uname" required placeholder="Enter your name"><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" id="email" required><br>
+            
+            <label for="pass">Password:</label><br>
+            <input type="password" name="pass" id="pass" required><br><br>
+            
+            <button type="submit">Sign In</button>
+        </div>
+    </form>
+</body>
+</html>

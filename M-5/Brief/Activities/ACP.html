@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JS Types, Let, and Loop Example</h2>
+
+<p id="output"></p>
+
+<script>
+var j; 
+var result = " ";
+{
+let j = 0;
+while (j < 10){
+result += "Inside block: " + j + "</br>";
+j++;
+}
+document.getElementById("output").innerHTML = result;
+}
+
+document.write("Outside block, j is: " + j);
+</script>
+
+</body>
+</html>

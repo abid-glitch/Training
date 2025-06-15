@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JS While Loop</h2>
+    <p id="numberList"></p>
+    <script>
+      var txt = "";
+      var count = 0;
+      while (count < 10) {
+        txt += "<br>Current value is " + count;
+        count++;
+      }
+      document.getElementById("numberList").innerHTML = txt;
+    </script>
+  </body>
+</html>

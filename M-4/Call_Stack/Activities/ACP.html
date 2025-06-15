@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JS Object Structure and Array Demo</h2>
+    
+    <script>
+        var learner = {
+          name: 'Riya',
+          age: '12',
+          grade: '7',
+          hobby: 'Drawing',
+          favSport: 'Cricket'
+        };
+        var shades = ["white", "black", "red", "green", "blue"];
+        document.write("Student name is : " + learner.name,"<br>","Student favorite sport is : " + learner.favSport);
+        document.write("<br>");
+        document.write("Before popping, colors are: " + shades.join("^"));
+        document.write("<br>");
+        document.write("Favorite color is : " + shades[3]);
+        document.write("<br>");
+        shades.pop();
+        document.write("After popping, colors are: " + shades.join("*"));
+    </script>
+  </body>
+</html>

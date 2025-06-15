@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h2>The JavaScript <i>this</i> Keyword in Action</h2>
+
+	<p id="object_value"></p>
+	<p id="function_value"></p>
+	<script>
+	  var user = {
+		firstName: "John",
+		lastName: "Doe",
+		id: 5566,
+		fullName: function() {
+		  return this.firstName + " " + this.lastName;
+		}
+	  };
+
+	  function showThis() {
+		return this;
+	  }
+
+	  document.getElementById("object_value").innerHTML = user.fullName();
+	  document.getElementById("function_value").innerHTML = showThis();
+	</script>
+</body>
+</html>

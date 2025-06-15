@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Sort mapped numbers ascending/descending</p>
+    <p id="mapped_output"></p>
+    <button onclick="sortAsc()">Asc Order</button>
+    <button onclick="sortDesc()">Desc Order</button>
+    <script>
+      var nums = [25, 12, 19, 94];
+      function timesFifty(val) {
+        return val * 50;
+      }
+      var mapped = nums.map(timesFifty);
+      document.getElementById("mapped_output").innerHTML = "Mapped values: " + mapped;
+      function sortAsc() {
+        mapped.sort((a, b) => a - b);
+        document.getElementById("mapped_output").innerHTML = "Ascending: " + mapped;
+      }
+      function sortDesc() {
+        mapped.sort((a, b) => b - a);
+        document.getElementById("mapped_output").innerHTML = "Descending: " + mapped;
+      }
+    </script>
+  </body>
+</html>
