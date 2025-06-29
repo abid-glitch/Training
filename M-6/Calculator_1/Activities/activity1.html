@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calc</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+    }
+    .wrapper {
+      width: 1000px;
+      height: 550px;
+      background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url(i4.jpeg);
+      margin: 25px auto;
+    }
+    .calc-box {
+      width: 320px;
+      height: 520px;
+      background: #e3e9f0;
+      margin: 0 auto;
+      position: relative;
+      top: 25px;
+      border-radius: 6px;
+      box-shadow: 0 5px 9px rgba(0,0,0,0.2), 0 6px 18px rgba(0,0,0,0.2);
+    }
+    .keys {
+      height: 400px;
+    }
+    .btn, .digit, .gap {
+      width: 50px;
+      height: 50px;
+      margin: 15px;
+      float: left;
+      border-radius: 50%;
+      border: none;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .btn:active, .digit:active {
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="calc-box">
+      <div class="keys">
+        <button class="btn" id="clr">C</button>
+        <button class="btn" id="del">CE</button>
+        <button class="btn" id="mod">%</button>
+        <button class="btn" id="div">&#247;</button>
+
+        <button class="digit" id="num7">7</button>
+        <button class="digit" id="num8">8</button>
+        <button class="digit" id="num9">9</button>
+        <button class="btn" id="mul">&times;</button>
+
+        <button class="digit" id="num4">4</button>
+        <button class="digit" id="num5">5</button>
+        <button class="digit" id="num6">6</button>
+        <button class="btn" id="sub">-</button>
+
+        <button class="digit" id="num1">1</button>
+        <button class="digit" id="num2">2</button>
+        <button class="digit" id="num3">3</button>
+        <button class="btn" id="add">+</button>
+
+        <button class="gap"></button>
+        <button class="digit" id="num0">0</button>
+        <button class="gap"></button>
+        <button class="btn" id="eq">=</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const keys = document.querySelectorAll("button");
+    let output = "";
+    const operators = {
+      clr: () => output = "",
+      del: () => output = output.slice(0, -1),
+      mod: () => output += "%",
+      div: () => output += "/",
+      mul: () => output += "*",
+      sub: () => output += "-",
+      add: () => output += "+",
+      eq: () => {
+        try {
+          output = eval(output).toString();
+        } catch {
+          output = "Error";
+        }
+      }
+    };
+    keys.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.id;
+        if (operators[id]) {
+          operators[id]();
+        } else if (id.startsWith("num")) {
+          output += btn.innerText;
+        }
+        console.log(output);
+      });
+    });
+  </script>
+</body>
+</html>

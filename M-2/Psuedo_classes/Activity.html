@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001133;
+            color: #C0D1B9;
+        }
+
+        h1 {
+            color: #5BAAFF;
+        }
+
+        /* Attribute Selector */
+        a[href] {
+            color: #B0F4F4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #1F4FEB;
+        }
+
+        /* Child Selector */
+        ul li {
+            font-weight: bold;
+        }
+
+        /* Sibling Selector */
+        h1 ~ p {
+            background-color: #101B22;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* :hover Pseudo-class */
+        p:hover {
+            color: #4F5EC9;
+        }
+
+        /* :nth-child() Pseudo-class */
+        ul li:nth-child(3) {
+            background-color: #216200;
+        }
+
+        /* ::not(selector) Pseudo-class */
+        p:not(.selector) {
+            text-decoration: underline;
+        }
+
+        /* ::before Pseudo-element */
+        ul li::before {
+            content: "🚀 ";
+        }
+
+        /* ::after Pseudo-element */
+        ul li::after {
+            content: " ⭐";
+        }
+
+        /* ::first-letter Pseudo-element */
+        p::first-letter {
+            font-size: 2em;
+            color: #FF7B72;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to the Space Explorer's Club</h1>
+    <ul>
+        <li>Moon Missions</li>
+        <li>Mars Rovers</li>
+        <li>International Space Station</li>
+        <li>Telescopes and Stars</li>
+        <li>Black Holes Mysteries</li>
+    </ul>
+    <p>Space exploration has always captivated human imagination. It's a journey to the unknown.</p>
+    <p>From the Moon to distant galaxies, we continue to explore the vastness of space.</p>
+    <a href="#">Join our Mission</a>
+    <a href="#">Latest Space News</a>
+    <a href="#">Gallery of the Universe</a>
+</body>
+</html>

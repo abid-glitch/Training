@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bank App UI</title>
+    <style>
+      .main-box {
+        padding: 20px 50px;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      #txnInput {
+        margin-left: 10px;
+        border-radius: 5px;
+      }
+      .actions {
+        justify-content: space-around;
+      }
+      .action-btn {
+        width: auto;
+        background-color: #343a40;
+        color: white;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-box">
+      <div class="row">
+        <h3>My Bank</h3>
+      </div>
+      <div class="row">
+        <label>Transaction Amount</label>
+        <input type="number" id="txnInput">
+      </div>
+      <div class="row actions">
+        <button id="addAmount" class="action-btn">Credit</button>
+        <button id="subAmount" class="action-btn">Debit</button>
+      </div>
+      <div class="row">
+        <label>Current Balance: Rs.</label>
+        <label id="total">0</label>
+      </div>
+      <div class="row">
+        <label id="status"></label>
+      </div>
+    </div>
+
+    <script>
+      const creditBtn = document.getElementById("addAmount");
+      const debitBtn = document.getElementById("subAmount");
+
+      creditBtn.addEventListener('click', function () {
+        let balanceDisplay = document.getElementById('total');
+        let amount = document.getElementById("txnInput").value;
+        let msg = document.getElementById('status');
+        let newBalance = parseInt(balanceDisplay.innerText) + parseInt(amount);
+
+        if (!amount) {
+          msg.innerText = "Enter a valid amount.";
+          msg.style.color = "red";
+        } else {
+          if (parseInt(amount) > 0) {
+            balanceDisplay.innerText = newBalance;
+            msg.innerText = "";
+          } else {
+            msg.innerText = "Amount must be positive.";
+            msg.style.color = "red";
+          }
+        }
+        document.getElementById("txnInput").value = "0";
+      });
+
+      debitBtn.addEventListener('click', function () {
+        let balanceDisplay = document.getElementById('total');
+        let amount = document.getElementById("txnInput").value;
+        let msg = document.getElementById('status');
+        let newBalance = parseInt(balanceDisplay.innerText) - parseInt(amount);
+
+        if (!amount) {
+          msg.innerText = "Enter a valid amount.";
+          msg.style.color = "red";
+        } else if (parseInt(amount) > parseInt(balanceDisplay.innerText)) {
+          msg.innerText = "Insufficient funds.";
+          msg.style.color = "red";
+        } else {
+          balanceDisplay.innerText = newBalance;
+          msg.innerText = "";
+        }
+        document.getElementById("txnInput").value = "0";
+      });
+    </script>
+  </body>
+</html>

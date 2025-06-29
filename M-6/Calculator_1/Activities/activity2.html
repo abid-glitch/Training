@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CalcBox</title>
+  <style>
+    html, body {
+      background: #000;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #main-box {
+      width: 1000px;
+      height: 550px;
+      margin: 20px auto;
+      background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('bgImg.jpg');
+    }
+    #calc {
+      width: 320px;
+      height: 520px;
+      background: hsl(204, 15%, 93%);
+      margin: 0 auto;
+      position: relative;
+      top: 20px;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.18);
+    }
+    #keys {
+      height: 400px;
+    }
+    .btn, .key, .blank {
+      width: 50px;
+      height: 50px;
+      margin: 15px;
+      float: left;
+      border-radius: 50%;
+      border: none;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .key, .blank {
+      background: #ebedee;
+    }
+    .btn, .key {
+      cursor: pointer;
+    }
+    .btn:active, .key:active {
+      font-size: 13px;
+    }
+    .btn:focus, .key:focus, .blank:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-box">
+    <div id="calc">
+      <input type="text" id="display" style="width: 280px; height: 100px; margin: 20px; font-size: 24px; border: none; text-align: right;">
+      <div id="keys">
+        <button class="btn">+</button>
+        <button class="btn">-</button>
+        <button class="btn">*</button>
+        <button class="btn">/</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">0</button>
+        <button class="key">.</button>
+        <button class="btn">=</button>
+        <button class="blank"></button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.btn, .key');
+
+    buttons.forEach(b => {
+      b.addEventListener('click', () => {
+        const val = b.textContent;
+        if (val === '=') {
+          try {
+            display.value = eval(display.value);
+          } catch {
+            display.value = 'Error';
+          }
+        } else {
+          display.value += val;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

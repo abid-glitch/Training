@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Portal</title>
+  <style>
+    .box {
+      padding: 20px 50px;
+    }
+
+    .line {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    #amt {
+      margin-left: 10px;
+      border-radius: 5px;
+    }
+
+    .actions {
+      justify-content: space-around;
+    }
+
+    .button {
+      background-color: #343a40;
+      color: white;
+      border: none;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="line">
+      <h3>Bank App</h3>
+    </div>
+    <div class="line">
+      <label>Transaction Amount</label>
+      <input type="number" id="amt" />
+    </div>
+    <div class="line actions">
+      <button id="add" class="button">Credit</button>
+      <button id="subtract" class="button">Debit</button>
+    </div>
+    <div class="line">
+      <label>Balance: Rs.</label>
+      <label id="bal">0</label>
+    </div>
+    <div class="line">
+      <label id="msg"></label>
+    </div>
+  </div>
+
+  <script>
+    const addBtn = document.getElementById("add");
+    const subBtn = document.getElementById("subtract");
+
+    addBtn.onclick = function () {
+      let bal = document.getElementById("bal");
+      let amt = document.getElementById("amt").value;
+      let msg = document.getElementById("msg");
+      let total = parseInt(bal.innerText) + parseInt(amt);
+      
+      if (!amt) {
+        msg.innerText = "Please enter amount.";
+        msg.style.color = "red";
+      } else {
+        if (parseInt(amt) > 0) {
+          bal.innerText = total;
+          msg.innerText = "";
+        } else {
+          msg.innerText = "Amount must be greater than 0.";
+          msg.style.color = "red";
+        }
+      }
+      document.getElementById("amt").value = "";
+    };
+
+    subBtn.onclick = function () {
+      let bal = document.getElementById("bal");
+      let amt = document.getElementById("amt").value;
+      let msg = document.getElementById("msg");
+      let diff = parseInt(bal.innerText) - parseInt(amt);
+      
+      if (!amt) {
+        msg.innerText = "Please enter amount.";
+        msg.style.color = "red";
+      } else if (parseInt(amt) > parseInt(bal.innerText)) {
+        msg.innerText = "Insufficient balance.";
+        msg.style.color = "red";
+      } else {
+        bal.innerText = diff;
+        msg.innerText = "";
+      }
+      document.getElementById("amt").value = "";
+    };
+  </script>
+</body>
+</html>

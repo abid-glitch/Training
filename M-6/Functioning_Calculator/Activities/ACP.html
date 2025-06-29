@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Banking System</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f3f4f6, #d1d5db);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    #amount {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      outline: none;
+      text-align: center;
+    }
+
+    .controls {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .btn {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+    }
+
+    #balance {
+      font-weight: bold;
+      color: #059669;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    #message {
+      color: #ef4444;
+      margin-top: 10px;
+      font-size: 14px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h3>Banking System</h3>
+    </div>
+    <div class="row">
+      <label>Enter Amount</label>
+      <input type="number" id="amount" />
+    </div>
+    <div class="row controls">
+      <button id="credit" class="btn">Add</button>
+      <button id="debit" class="btn">Withdraw</button>
+    </div>
+    <div class="row">
+      <label>Current Balance:</label>
+      <label id="balance">0</label>
+    </div>
+    <div class="row">
+      <label id="message"></label>
+    </div>
+  </div>
+
+  <script>
+    let creditBtn = document.getElementById("credit");
+    let debitBtn = document.getElementById("debit");
+
+    creditBtn.onclick = function () {
+      let balanceEl = document.getElementById('balance');
+      let inputVal = document.getElementById("amount").value;
+      let msgEl = document.getElementById('message');
+
+      if (!inputVal) {
+        msgEl.innerText = "Enter a valid amount.";
+      } else if (parseInt(inputVal) > 0) {
+        balanceEl.innerText = parseInt(balanceEl.innerText) + parseInt(inputVal);
+        msgEl.innerText = "";
+      } else {
+        msgEl.innerText = "Amount should be positive.";
+      }
+      document.getElementById("amount").value = "0";
+    };
+
+    debitBtn.onclick = function () {
+      let balanceEl = document.getElementById('balance');
+      let inputVal = document.getElementById("amount").value;
+      let msgEl = document.getElementById('message');
+
+      if (!inputVal) {
+        msgEl.innerText = "Enter a valid amount.";
+      } else if (parseInt(inputVal) > parseInt(balanceEl.innerText)) {
+        msgEl.innerText = "Insufficient funds.";
+      } else {
+        balanceEl.innerText = parseInt(balanceEl.innerText) - parseInt(inputVal);
+        msgEl.innerText = "";
+      }
+      document.getElementById("amount").value = "0";
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic Calculator</title>
+	<style>
+		body {
+			background: black;
+			font-family: 'Open Sans', sans-serif;
+		}
+		#wrap {
+			width: 1000px;
+			height: 550px;
+			margin: 20px auto;
+			background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(bgImg.jpg);
+		}
+		#machine {
+			width: 320px;
+			height: 520px;
+			background: #eaedef;
+			margin: 0 auto;
+			top: 20px;
+			position: relative;
+			border-radius: 5px;
+			box-shadow: 0 4px 8px rgba(0,0,0,.2), 0 6px 20px rgba(0,0,0,.19);
+		}
+		#screen {
+			height: 120px;
+		}
+		#track {
+			text-align: right;
+			height: 20px;
+			margin: 0 20px;
+			padding-top: 20px;
+			font-size: 15px;
+			color: #919191;
+		}
+		#display {
+			text-align: right;
+			height: 60px;
+			margin: 10px 20px;
+			font-size: 30px;
+		}
+		#buttons {
+			height: 400px;
+		}
+		.ctrl, .digit, .blank {
+			width: 50px;
+			height: 50px;
+			margin: 15px;
+			float: left;
+			border-radius: 50%;
+			border: none;
+			font-weight: bold;
+			font-size: 15px;
+		}
+		.digit, .blank {
+			background: #eaedef;
+		}
+		.digit, .ctrl {
+			cursor: pointer;
+		}
+		.ctrl:active, .digit:active {
+			font-size: 13px;
+		}
+		.ctrl:focus, .digit:focus, .blank:focus {
+			outline: none;
+		}
+		button:nth-child(4) { background: #20b2aa; font-size: 20px; }
+		button:nth-child(8) { background: #ffa500; font-size: 20px; }
+		button:nth-child(12) { background: #f08080; font-size: 20px; }
+		button:nth-child(16) { background: #7d93e0; font-size: 20px; }
+		button:nth-child(20) { background: #9477af; font-size: 20px; }
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+</head>
+<body>
+	<div id="wrap">
+		<div id="machine">
+			<div id="screen">
+				<div id="track">
+					<p id="past"></p>
+				</div>
+				<div id="display">
+					<p id="current"></p>
+				</div>
+			</div>
+			<div id="buttons">
+				<button class="ctrl" id="reset">C</button>
+				<button class="ctrl" id="remove">CE</button>
+				<button class="ctrl" id="mod">%</button>
+				<button class="ctrl" id="divide">&#247;</button>
+				<button class="digit" id="7">7</button>
+				<button class="digit" id="8">8</button>
+				<button class="digit" id="9">9</button>
+				<button class="ctrl" id="times">&times;</button>
+				<button class="digit" id="4">4</button>
+				<button class="digit" id="5">5</button>
+				<button class="digit" id="6">6</button>
+				<button class="ctrl" id="minus">-</button>
+				<button class="digit" id="1">1</button>
+				<button class="digit" id="2">2</button>
+				<button class="digit" id="3">3</button>
+				<button class="ctrl" id="plus">+</button>
+				<button class="blank"></button>
+				<button class="digit" id="0">0</button>
+				<button class="blank"></button>
+				<button class="ctrl" id="equal">=</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function fetchPast() {
+			return document.getElementById("past").innerText;
+		}
+		function updatePast(val) {
+			document.getElementById("past").innerText = val;
+		}
+		function fetchCurrent() {
+			return document.getElementById("current").innerText;
+		}
+		function updateCurrent(val) {
+			if (val === "") {
+				document.getElementById("current").innerText = val;
+			} else {
+				document.getElementById("current").innerText = formatNumber(val);
+			}
+		}
+		function formatNumber(num) {
+			if (num == "-") return "";
+			return Number(num).toLocaleString("en");
+		}
+		function unformat(num) {
+			return Number(num.replace(/,/g, ''));
+		}
+
+		var ops = document.getElementsByClassName("ctrl");
+		for (let i = 0; i < ops.length; i++) {
+			ops[i].addEventListener('click', function () {
+				if (this.id === "reset") {
+					updatePast("");
+					updateCurrent("");
+				} else if (this.id === "remove") {
+					var val = unformat(fetchCurrent()).toString();
+					if (val) {
+						val = val.slice(0, -1);
+						updateCurrent(val);
+					}
+				} else {
+					var current = fetchCurrent();
+					var past = fetchPast();
+					if (current === "" && past !== "") {
+						if (isNaN(past[past.length - 1])) {
+							past = past.slice(0, -1);
+						}
+					}
+					if (current !== "" || past !== "") {
+						current = current === "" ? current : unformat(current);
+						past += current;
+						let symbol = this.id === "times" ? "*" :
+									 this.id === "divide" ? "/" :
+									 this.id === "plus" ? "+" :
+									 this.id === "minus" ? "-" :
+									 this.id === "mod" ? "%" :
+									 this.id === "equal" ? "=" : "";
+
+						if (symbol === "=") {
+							let res = eval(past);
+							updateCurrent(res);
+							updatePast("");
+						} else {
+							past += symbol;
+							updatePast(past);
+							updateCurrent("");
+						}
+					}
+				}
+			});
+		}
+
+		var nums = document.getElementsByClassName("digit");
+		for (let i = 0; i < nums.length; i++) {
+			nums[i].addEventListener('click', function () {
+				var val = unformat(fetchCurrent());
+				if (!isNaN(val)) {
+					val += this.id;
+					updateCurrent(val);
+				}
+			});
+		}
+	</script>
+</body>
+</html>
